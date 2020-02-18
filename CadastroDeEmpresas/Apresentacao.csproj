@@ -168,6 +168,12 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmPathBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPathBD.Designer.cs">
+      <DependentUpon>FrmPathBD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmVisualizarCPF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPathBD.resx">
+      <DependentUpon>FrmPathBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizarCPF.resx">
       <DependentUpon>FrmVisualizarCPF.cs</DependentUpon>
@@ -223,9 +232,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CadastroEmpresasLibrary\CadastroEmpresasLibrary.csproj">
+    <ProjectReference Include="..\CadastroEmpresasLibrary\RegraNegocio.csproj">
       <Project>{D5D26AE8-BCD8-4184-875F-E9D80D788B9F}</Project>
-      <Name>CadastroEmpresasLibrary</Name>
+      <Name>RegraNegocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

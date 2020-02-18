@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5D26AE8-BCD8-4184-875F-E9D80D788B9F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CadastroEmpresasLibrary</RootNamespace>
-    <AssemblyName>CadastroEmpresasLibrary</AssemblyName>
+    <ProjectGuid>{47C97A16-266D-4B88-A53E-D6B00AD4C171}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleSandBox</RootNamespace>
+    <AssemblyName>ConsoleSandBox</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,16 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Endereco.cs" />
-    <Compile Include="Classes\PessoaFisica.cs" />
-    <Compile Include="Exceptions\ExcecoesPessoaFisica.cs" />
-    <Compile Include="Metodos\Funcoes.cs" />
-    <Compile Include="Metodos\MetodosEndereco.cs" />
-    <Compile Include="Metodos\MetodosPessoaFisica.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CadastroDeEmpresas\Apresentacao.csproj">
+      <Project>{808ec419-fcca-41fa-a165-bd28909c72af}</Project>
+      <Name>Apresentacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CadastroEmpresasLibrary\RegraNegocio.csproj">
+      <Project>{d5d26ae8-bcd8-4184-875f-e9d80d788b9f}</Project>
+      <Name>RegraNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

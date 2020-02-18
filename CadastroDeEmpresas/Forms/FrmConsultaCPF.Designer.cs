@@ -32,18 +32,17 @@
             this.txtBoxAux = new System.Windows.Forms.TextBox();
             this.dataGridViewConsulCPF = new System.Windows.Forms.DataGridView();
             this.grpBoxConsultaCPFbuttons = new System.Windows.Forms.GroupBox();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnConsultaCPFsair = new System.Windows.Forms.Button();
             this.btnConsultaCPFalterar = new System.Windows.Forms.Button();
             this.btnConsultaCPFentrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnConsultaGO = new System.Windows.Forms.Button();
-            this.checkBoxCPFnome = new System.Windows.Forms.CheckBox();
-            this.checkBoxCPFcpf = new System.Windows.Forms.CheckBox();
             this.mskTxtConsultaCPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtConsultaNOME = new System.Windows.Forms.TextBox();
-            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpBoxConsultaCPF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).BeginInit();
             this.grpBoxConsultaCPFbuttons.SuspendLayout();
@@ -87,129 +86,122 @@
             this.grpBoxConsultaCPFbuttons.Controls.Add(this.btnConsultaCPFentrar);
             this.grpBoxConsultaCPFbuttons.Location = new System.Drawing.Point(12, 364);
             this.grpBoxConsultaCPFbuttons.Name = "grpBoxConsultaCPFbuttons";
-            this.grpBoxConsultaCPFbuttons.Size = new System.Drawing.Size(316, 95);
-            this.grpBoxConsultaCPFbuttons.TabIndex = 4;
+            this.grpBoxConsultaCPFbuttons.Size = new System.Drawing.Size(316, 103);
+            this.grpBoxConsultaCPFbuttons.TabIndex = 1;
             this.grpBoxConsultaCPFbuttons.TabStop = false;
             this.grpBoxConsultaCPFbuttons.Text = "Funções";
             // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Location = new System.Drawing.Point(112, 21);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(198, 26);
+            this.btnMostrarTodos.TabIndex = 2;
+            this.btnMostrarTodos.Text = "Mostrar Todos";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            // 
             // btnConsultaCPFsair
             // 
-            this.btnConsultaCPFsair.Location = new System.Drawing.Point(218, 45);
+            this.btnConsultaCPFsair.Location = new System.Drawing.Point(218, 53);
             this.btnConsultaCPFsair.Name = "btnConsultaCPFsair";
             this.btnConsultaCPFsair.Size = new System.Drawing.Size(92, 38);
-            this.btnConsultaCPFsair.TabIndex = 2;
+            this.btnConsultaCPFsair.TabIndex = 5;
             this.btnConsultaCPFsair.Text = "Sair";
             this.btnConsultaCPFsair.UseVisualStyleBackColor = true;
             this.btnConsultaCPFsair.Click += new System.EventHandler(this.btnConsultaCPFsair_Click);
             // 
             // btnConsultaCPFalterar
             // 
-            this.btnConsultaCPFalterar.Location = new System.Drawing.Point(112, 45);
+            this.btnConsultaCPFalterar.Location = new System.Drawing.Point(112, 53);
             this.btnConsultaCPFalterar.Name = "btnConsultaCPFalterar";
             this.btnConsultaCPFalterar.Size = new System.Drawing.Size(92, 38);
-            this.btnConsultaCPFalterar.TabIndex = 1;
+            this.btnConsultaCPFalterar.TabIndex = 4;
             this.btnConsultaCPFalterar.Text = "Excluir";
             this.btnConsultaCPFalterar.UseVisualStyleBackColor = true;
             this.btnConsultaCPFalterar.Click += new System.EventHandler(this.btnConsultaCPFalterar_Click);
             // 
             // btnConsultaCPFentrar
             // 
-            this.btnConsultaCPFentrar.Location = new System.Drawing.Point(6, 45);
+            this.btnConsultaCPFentrar.Location = new System.Drawing.Point(6, 53);
             this.btnConsultaCPFentrar.Name = "btnConsultaCPFentrar";
             this.btnConsultaCPFentrar.Size = new System.Drawing.Size(92, 38);
-            this.btnConsultaCPFentrar.TabIndex = 0;
+            this.btnConsultaCPFentrar.TabIndex = 3;
             this.btnConsultaCPFentrar.Text = "Visualizar";
             this.btnConsultaCPFentrar.UseVisualStyleBackColor = true;
             this.btnConsultaCPFentrar.Click += new System.EventHandler(this.btnConsultaCPFentrar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnConsultaGO);
-            this.groupBox1.Controls.Add(this.checkBoxCPFnome);
-            this.groupBox1.Controls.Add(this.checkBoxCPFcpf);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnLimpar);
             this.groupBox1.Controls.Add(this.mskTxtConsultaCPF);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtConsultaNOME);
             this.groupBox1.Location = new System.Drawing.Point(334, 364);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(501, 95);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.Size = new System.Drawing.Size(501, 103);
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
-            // btnConsultaGO
-            // 
-            this.btnConsultaGO.Location = new System.Drawing.Point(441, 25);
-            this.btnConsultaGO.Name = "btnConsultaGO";
-            this.btnConsultaGO.Size = new System.Drawing.Size(54, 47);
-            this.btnConsultaGO.TabIndex = 6;
-            this.btnConsultaGO.Text = "GO!";
-            this.btnConsultaGO.UseVisualStyleBackColor = true;
-            this.btnConsultaGO.Click += new System.EventHandler(this.btnConsultaGO_Click);
-            // 
-            // checkBoxCPFnome
-            // 
-            this.checkBoxCPFnome.AutoSize = true;
-            this.checkBoxCPFnome.Location = new System.Drawing.Point(6, 39);
-            this.checkBoxCPFnome.Name = "checkBoxCPFnome";
-            this.checkBoxCPFnome.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxCPFnome.TabIndex = 5;
-            this.checkBoxCPFnome.UseVisualStyleBackColor = true;
-            this.checkBoxCPFnome.CheckedChanged += new System.EventHandler(this.checkBoxCPFnome_CheckedChanged);
-            // 
-            // checkBoxCPFcpf
-            // 
-            this.checkBoxCPFcpf.AutoSize = true;
-            this.checkBoxCPFcpf.Location = new System.Drawing.Point(281, 40);
-            this.checkBoxCPFcpf.Name = "checkBoxCPFcpf";
-            this.checkBoxCPFcpf.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxCPFcpf.TabIndex = 4;
-            this.checkBoxCPFcpf.UseVisualStyleBackColor = true;
-            this.checkBoxCPFcpf.CheckedChanged += new System.EventHandler(this.checkBoxCPFcpf_CheckedChanged);
-            // 
             // mskTxtConsultaCPF
             // 
-            this.mskTxtConsultaCPF.Location = new System.Drawing.Point(336, 37);
+            this.mskTxtConsultaCPF.Location = new System.Drawing.Point(90, 69);
             this.mskTxtConsultaCPF.Mask = "000,000,000-00";
             this.mskTxtConsultaCPF.Name = "mskTxtConsultaCPF";
             this.mskTxtConsultaCPF.Size = new System.Drawing.Size(99, 22);
-            this.mskTxtConsultaCPF.TabIndex = 3;
+            this.mskTxtConsultaCPF.TabIndex = 9;
+            this.mskTxtConsultaCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTxtConsultaCPF_MaskInputRejected);
+            this.mskTxtConsultaCPF.Click += new System.EventHandler(this.mskTxtConsultaCPF_Click);
+            this.mskTxtConsultaCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTxtConsultaCPF_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 40);
+            this.label2.Location = new System.Drawing.Point(44, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 17);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "CPF";
+            this.label2.Text = "CPF:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 39);
+            this.label1.Location = new System.Drawing.Point(33, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nome";
+            this.label1.Text = "Nome:";
             // 
             // txtConsultaNOME
             // 
-            this.txtConsultaNOME.Location = new System.Drawing.Point(73, 37);
+            this.txtConsultaNOME.Location = new System.Drawing.Point(90, 38);
             this.txtConsultaNOME.Name = "txtConsultaNOME";
-            this.txtConsultaNOME.Size = new System.Drawing.Size(201, 22);
-            this.txtConsultaNOME.TabIndex = 0;
+            this.txtConsultaNOME.Size = new System.Drawing.Size(212, 22);
+            this.txtConsultaNOME.TabIndex = 7;
+            this.txtConsultaNOME.Click += new System.EventHandler(this.txtConsultaNOME_Click);
+            this.txtConsultaNOME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultaNOME_KeyPress);
             // 
-            // btnMostrarTodos
+            // btnLimpar
             // 
-            this.btnMostrarTodos.Location = new System.Drawing.Point(112, 13);
-            this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(198, 26);
-            this.btnMostrarTodos.TabIndex = 3;
-            this.btnMostrarTodos.Text = "Mostrar Todos";
-            this.btnMostrarTodos.UseVisualStyleBackColor = true;
-            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            this.btnLimpar.Location = new System.Drawing.Point(323, 53);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(163, 36);
+            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Text = "Limpar Campos";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(333, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "* Enter p/ pesquisar *";
             // 
             // FrmConsultaCPF
             // 
@@ -243,14 +235,13 @@
         private System.Windows.Forms.Button btnConsultaCPFalterar;
         private System.Windows.Forms.Button btnConsultaCPFentrar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnConsultaGO;
-        private System.Windows.Forms.CheckBox checkBoxCPFnome;
-        private System.Windows.Forms.CheckBox checkBoxCPFcpf;
         private System.Windows.Forms.MaskedTextBox mskTxtConsultaCPF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtConsultaNOME;
         private System.Windows.Forms.TextBox txtBoxAux;
         private System.Windows.Forms.Button btnMostrarTodos;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Label label3;
     }
 }

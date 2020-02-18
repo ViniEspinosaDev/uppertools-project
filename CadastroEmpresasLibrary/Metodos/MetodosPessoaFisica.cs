@@ -57,127 +57,6 @@ namespace CadastroEmpresasLibrary.Classes
             this._isNew = false;
         }
         //Metodos Banco de dados
-        public void Insert()
-        {
-            using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
-            {
-                try
-                {
-                    cn.Open();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = @"INSERT INTO PessoaFisica (ID, Nome, CPF, DataNascimento, 
-                            Email, Telefone, Celular) VALUES (@id, @nome, @cpf, @datanascimento, @email, @telefone, @celular)";
-                    cmd.Connection = cn;
-
-                    cmd.Parameters.AddWithValue("@id", this._ID);
-                    cmd.Parameters.AddWithValue("@nome", this._Nome);
-                    cmd.Parameters.AddWithValue("@cpf", this._CPF);
-                    cmd.Parameters.AddWithValue("@datanascimento", this._DataNascimento);
-                    cmd.Parameters.AddWithValue("@email", this._Email);
-                    cmd.Parameters.AddWithValue("@telefone", this._Telefone);
-                    cmd.Parameters.AddWithValue("@celular", this._Celular);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        this._isNew = false;
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
-
-
-
-                }
-            }
-        }
-        public void Update()
-        {
-            using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
-            {
-                try
-                {
-                    cn.Open();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = @"UPDATE PessoaFisica SET Nome = @nome, CPF = @cpf, DataNascimento = @datanascimento, Email = @email,
-                                            Telefone = @telefone, Celular = @celular WHERE ID = @id";
-                    cmd.Connection = cn;
-
-                    cmd.Parameters.AddWithValue("@id", this._ID);
-                    cmd.Parameters.AddWithValue("@nome", this._Nome);
-                    cmd.Parameters.AddWithValue("@cpf", this._CPF);
-                    cmd.Parameters.AddWithValue("@datanascimento", this._DataNascimento);
-                    cmd.Parameters.AddWithValue("@email", this._Email);
-                    cmd.Parameters.AddWithValue("@telefone", this._Telefone);
-                    cmd.Parameters.AddWithValue("@celular", this._Celular);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        this._isModified = false;
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
-                }
-            }
-        }
-        public void GravarBD()
-        {
-            if (this._isNew)
-                Insert();
-            else if (this._isModified)
-                Update();
-        }
-        public void ApagarBD()
-        {
-            using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
-            {
-                try
-                {
-                    cn.Open();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = @"DELETE FROM PessoaFisica WHERE ID = @id";
-                    cmd.Connection = cn;
-
-                    cmd.Parameters.AddWithValue("@id", this._ID);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
-                }
-            }
-        }
         public int _Proximo()
         {
             return Proximo();
@@ -201,11 +80,11 @@ namespace CadastroEmpresasLibrary.Classes
                 {
                     cmd.Connection = cn;
                     cmd.CommandText = "SELECT * FROM PessoaFisica";
-                    
+
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        while(dr.Read())
+                        while (dr.Read())
                         {
                             _return++;
                         }
@@ -237,7 +116,7 @@ namespace CadastroEmpresasLibrary.Classes
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if(dr.Read())
+                        if (dr.Read())
                         {
                             this._ID = dr.GetInt32(dr.GetOrdinal("ID"));
                             this._Nome = dr.GetString(dr.GetOrdinal("Nome"));
@@ -248,14 +127,13 @@ namespace CadastroEmpresasLibrary.Classes
                             this._Celular = dr.GetString(dr.GetOrdinal("Celular"));
                             return true;
                         }
-                           
+
                     }
                 }
             }
             return false;
         }
-
-        public static List<PessoaFisica> BuscaNome(string nome)
+        public static List<PessoaFisica> BuscaNome(string enome)
         {
             List<PessoaFisica> _return = null;
 
@@ -273,8 +151,8 @@ namespace CadastroEmpresasLibrary.Classes
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = cn;
-                    cmd.CommandText = "SELECT * FROM PessoaFisica WHERE Nome like '%@nome%'";
-                    cmd.Parameters.AddWithValue("@nome", nome);
+                    cmd.CommandText = $"SELECT * FROM PessoaFisica WHERE Nome like '%{enome}%'";
+                    //cmd.Parameters.AddWithValue("@nome", nome);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -333,17 +211,9 @@ namespace CadastroEmpresasLibrary.Classes
                     {
                         if (dr.HasRows)
                         {
-                            while(dr.Read())
+                            while (dr.Read())
                             {
-                                PessoaFisica auxPessoaFisica = new PessoaFisica();
-
-                                auxPessoaFisica.Id = dr.GetInt32(dr.GetOrdinal("ID"));
-                                auxPessoaFisica._Nome = dr.GetString(dr.GetOrdinal("Nome"));
-                                auxPessoaFisica._CPF = dr.GetString(dr.GetOrdinal("CPF"));
-                                auxPessoaFisica._DataNascimento = dr.GetDateTime(dr.GetOrdinal("DataNascimento"));
-                                auxPessoaFisica._Email = dr.GetString(dr.GetOrdinal("Email"));
-                                auxPessoaFisica._Telefone = dr.GetString(dr.GetOrdinal("Telefone"));
-                                auxPessoaFisica._Celular = dr.GetString(dr.GetOrdinal("Celular"));
+                                PessoaFisica auxPessoaFisica = ConvertRowToEntity(dr);
 
                                 if (_return == null)
                                     _return = new List<PessoaFisica>();

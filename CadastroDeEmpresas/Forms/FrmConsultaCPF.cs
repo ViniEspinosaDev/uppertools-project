@@ -36,18 +36,6 @@ namespace CadastroDeEmpresas.Forms
             this.Close();
         }
 
-        private void checkBoxCPFcpf_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxCPFcpf.Checked)
-                checkBoxCPFnome.Checked = false;
-        }
-
-        private void checkBoxCPFnome_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxCPFnome.Checked)
-                checkBoxCPFcpf.Checked = false;
-        }
-
         private void btnConsultaCPFalterar_Click(object sender, EventArgs e)
         {
             //Para obter o item atual da lista
@@ -55,10 +43,10 @@ namespace CadastroDeEmpresas.Forms
             {
                 if (MessageBox.Show("Tem certeza que deseja excluir esse cadastro?", "CUIDADO!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    ((PessoaFisica)dados.Current).ApagarBD();
-                    int id = ((PessoaFisica)dados.Current).Id;
-                    Endereco novo = new Endereco();
-                    novo.ApagarBD(id);
+                    ((PessoaFisica)dados.Current).Delete();
+                    Endereco auxEnd = new Endereco();
+                    auxEnd.ID = ((PessoaFisica)dados.Current).Id;
+                    auxEnd.Delete();
                     MessageBox.Show("Cadastro Excluido com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -86,11 +74,11 @@ namespace CadastroDeEmpresas.Forms
             }
         }
 
-        private void btnConsultaGO_Click(object sender, EventArgs e)
+        private void btnConsultaGO_Click(object sender, EventArgs e, int op)
         {
             try
             {
-                if (checkBoxCPFnome.Checked)
+                if (op == 1)
                 {
                     if (!string.IsNullOrEmpty(txtConsultaNOME.Text))
                     {
@@ -104,10 +92,10 @@ namespace CadastroDeEmpresas.Forms
                     }
                     else
                     {
-                        throw new ValidacaoException("Check Box NOME marcada porém sem texto em 'NOME'!");
+                        throw new ValidacaoException("Insira um Nome");
                     }
                 }
-                else if (checkBoxCPFcpf.Checked)
+                else
                 {
                     if (!string.IsNullOrEmpty(mskTxtConsultaCPF.Text))
                     {
@@ -124,14 +112,6 @@ namespace CadastroDeEmpresas.Forms
                         dados.DataSource = pf;
                         dataGridViewConsulCPF.DataSource = dados;
                     }
-                    else
-                    {
-                        throw new ValidacaoException("Check Box CPF marcada porém sem texto em 'CPF'!");
-                    }
-                }
-                else
-                {
-                    throw new ValidacaoException("Nenhuma check box marcada!");
                 }
             }
             catch (Exception ee)
@@ -145,5 +125,42 @@ namespace CadastroDeEmpresas.Forms
             dados.DataSource = PessoaFisica.Todos();
             dataGridViewConsulCPF.DataSource = dados;
         }
-    }
+
+        private void txtConsultaNOME_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                btnConsultaGO_Click(sender, e, 1);
+            }
+        }
+
+        private void mskTxtConsultaCPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                btnConsultaGO_Click(sender, e, 2);
+            }
+        }
+
+        private void txtConsultaNOME_Click(object sender, EventArgs e)
+        {
+            txtConsultaNOME.SelectAll();
+        }
+
+        private void mskTxtConsultaCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void mskTxtConsultaCPF_Click(object sender, EventArgs e)
+        {
+            txtConsultaNOME.SelectAll();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtConsultaNOME.Text = mskTxtConsultaCPF.Text = "";
+        }
+
+        }
 }

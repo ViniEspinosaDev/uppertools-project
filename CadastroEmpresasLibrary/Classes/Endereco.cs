@@ -3,18 +3,22 @@ using CadastroEmpresasLibrary.Exceptions;
 using CadastroEmpresasLibrary.Metodos;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CadastroDeEmpresasLibrary.Classes
 {
-    public partial class Endereco
+    public partial class Endereco : Backwork<Endereco>, IDisposable
     {
         Funcoes Func = new Funcoes();
+
+        [DataObjectField(true, true, false)]
         public int ID { get; set; }
 
         private string _CEP;
+        [DataObjectField(false, false, false)]
         public string CEP
         {
             get { return _CEP; }
@@ -27,6 +31,7 @@ namespace CadastroDeEmpresasLibrary.Classes
         }
 
         private string _Cidade;
+        [DataObjectField(false, false, false)]
         public string Cidade
         {
             get { return _Cidade; }
@@ -40,6 +45,7 @@ namespace CadastroDeEmpresasLibrary.Classes
         }
 
         private string _UF;
+        [DataObjectField(false, false, false)]
         public string UF
         {
             get { return _UF; }
@@ -54,6 +60,7 @@ namespace CadastroDeEmpresasLibrary.Classes
 
 
         private string _Logradouro;
+        [DataObjectField(false, false, true)]
         public string Logradouro
         {
             get { return _Logradouro; }
@@ -66,6 +73,7 @@ namespace CadastroDeEmpresasLibrary.Classes
 
 
         private string _Bairro;
+        [DataObjectField(false, false, true)]
         public string Bairro
         {
             get { return _Bairro; }
@@ -78,6 +86,7 @@ namespace CadastroDeEmpresasLibrary.Classes
 
 
         private string _Numero;
+        [DataObjectField(false, false, false)]
         public string Numero
         {
             get { return _Numero; }
@@ -90,6 +99,7 @@ namespace CadastroDeEmpresasLibrary.Classes
 
 
         private string _Complemento;
+        [DataObjectField(false, false, true)]
         public string Complemento
         {
             get { return _Complemento; }
@@ -100,5 +110,26 @@ namespace CadastroDeEmpresasLibrary.Classes
             }
         }
 
+        public void Dispose()
+        {
+            this.GravarBD();
+        }
+
+        [Browsable(false)]
+        public bool IsNew
+        {
+            get { return _isNew; }
+        }
+        [Browsable(false)]
+        public bool IsModified
+        {
+            get { return _isModified; }
+        }
+
+        //Verifica se é novo
+        private bool _isNew;
+
+        //Verifica se já foi modificado
+        private bool _isModified;
     }
 }

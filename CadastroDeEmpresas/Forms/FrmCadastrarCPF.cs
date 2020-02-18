@@ -101,7 +101,7 @@ namespace CadastroDeEmpresas.Forms
                     auxEndereco.UF = txtUF.Text;
 
                     pessoa.Dispose();
-                    auxEndereco.Insert();
+                    auxEndereco.Dispose();
                 }
                 else
                 {

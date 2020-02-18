@@ -1,0 +1,1 @@
+Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;

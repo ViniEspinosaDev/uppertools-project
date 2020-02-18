@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CadastroEmpresasLibrary.Classes;
 
 namespace CadastroDeEmpresasLibrary.Classes
 {
@@ -11,7 +12,12 @@ namespace CadastroDeEmpresasLibrary.Classes
     {
         public Endereco()
         {
+            this.ID = Proximo();
+            this._isNew = true;
+            this._isModified = false;
         }
+
+        //Mexi no banco de dados aqui!!! Se der erro já sabe
         public Endereco(int ID)
         {
             using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
@@ -36,60 +42,18 @@ namespace CadastroDeEmpresasLibrary.Classes
                         if (dr.HasRows)
                         {
                             dr.Read();
-                            this.ID = dr.GetInt32(dr.GetOrdinal("Id"));
-                            this.CEP = dr.GetString(dr.GetOrdinal("Cep"));
-                            this.Cidade = dr.GetString(dr.GetOrdinal("Cidade"));
-                            this.UF = dr.GetString(dr.GetOrdinal("Uf"));
-                            this.Logradouro = dr.GetString(dr.GetOrdinal("Logradouro"));
-                            this.Bairro = dr.GetString(dr.GetOrdinal("Bairro"));
-                            this.Numero = dr.GetString(dr.GetOrdinal("Numero"));
-                            this.Complemento = dr.GetString(dr.GetOrdinal("Complemento"));
+                            Endereco end = ConvertRowToEntity(dr);
+                            //this.ID = dr.GetInt32(dr.GetOrdinal("Id"));
+                            //this.CEP = dr.GetString(dr.GetOrdinal("Cep"));
+                            //this.Cidade = dr.GetString(dr.GetOrdinal("Cidade"));
+                            //this.UF = dr.GetString(dr.GetOrdinal("Uf"));
+                            //this.Logradouro = dr.GetString(dr.GetOrdinal("Logradouro"));
+                            //this.Bairro = dr.GetString(dr.GetOrdinal("Bairro"));
+                            //this.Numero = dr.GetString(dr.GetOrdinal("Numero"));
+                            //this.Complemento = dr.GetString(dr.GetOrdinal("Complemento"));
 
                         }
                     }
-
-                }
-            }
-        }
-        public void Insert()
-        {
-            using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
-            {
-                try
-                {
-                    cn.Open();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = @"INSERT INTO Endereco (Id, Cep, Cidade, Uf, 
-                            Logradouro, Bairro, Numero, Complemento) VALUES (@id, @cep, @cidade, @uf, @logradouro, @bairro, @numero, @complemento)";
-                    cmd.Connection = cn;
-
-                    cmd.Parameters.AddWithValue("@id", this.ID);
-                    cmd.Parameters.AddWithValue("@cep", this.CEP);
-                    cmd.Parameters.AddWithValue("@cidade", this.Cidade);
-                    cmd.Parameters.AddWithValue("@uf", this.UF);
-                    cmd.Parameters.AddWithValue("@logradouro", this.Logradouro);
-                    cmd.Parameters.AddWithValue("@bairro", this.Bairro);
-                    cmd.Parameters.AddWithValue("@numero", this.Numero);
-                    cmd.Parameters.AddWithValue("@complemento", this.Complemento);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
-
-
 
                 }
             }
@@ -164,5 +128,37 @@ namespace CadastroDeEmpresasLibrary.Classes
                 }
             }
         }
+        public static Int32 Proximo()
+        {
+            Int32 _return = 0;
+            using (SqlConnection cn = new SqlConnection("Server=.\\sqlexpress;Database=CadastroEmpresa;Trusted_Connection=True;"))
+            {
+                try
+                {
+                    cn.Open();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = cn;
+                    cmd.CommandText = "SELECT * FROM Endereco";
+
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            _return++;
+                        }
+                    }
+                }
+            }
+            return _return + 1;
+        }
+        //Ver se já existe o CPF cadastrado
     }
 }

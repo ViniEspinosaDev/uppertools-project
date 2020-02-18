@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CadastroEmpresasLibrary.Exceptions;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +88,60 @@ namespace CadastroEmpresasLibrary.Metodos
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
         }
+        public Boolean TestarConexaoBanco(string pathBanco)
+        {
+            using(SqlConnection sc = new SqlConnection(pathBanco))
+            {
+                try
+                {
+                    sc.Open();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        //public Boolean VerificaTabela(string pathBD, string nomeTabela)
+        //{
+        //    using(SqlConnection cn = new SqlConnection(pathBD))
+        //    {
+        //        try
+        //        {
+        //            cn.Open();
+        //        }
+        //        catch (Exception ee)
+        //        {
+        //            throw new ValidacaoException(ee.Message);
+        //        }
+
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = cn;
+        //            cmd.CommandText = $"SELECT * FROM {nomeTabela}";
+
+        //            using (SqlDataReader dr = cmd.ExecuteReader())
+        //            {
+        //                if (dr.HasRows)
+        //                {
+        //                    dr.Read();
+        //                    this._ID = dr.GetInt32(dr.GetOrdinal("ID"));
+        //                    this._Nome = dr.GetString(dr.GetOrdinal("Nome"));
+        //                    this._CPF = dr.GetString(dr.GetOrdinal("CPF"));
+        //                    this._DataNascimento = dr.GetDateTime(dr.GetOrdinal("DataNascimento"));
+        //                    this._Email = dr.GetString(dr.GetOrdinal("Email"));
+        //                    this._Telefone = dr.GetString(dr.GetOrdinal("Telefone"));
+        //                    this._Celular = dr.GetString(dr.GetOrdinal("Celular"));
+
+        //                }
+        //            }
+
+        //        }
+
+        //    }
+        //}
 
     }
 }

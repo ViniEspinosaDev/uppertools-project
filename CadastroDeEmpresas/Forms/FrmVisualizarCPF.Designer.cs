@@ -43,7 +43,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnBuscarCEP = new System.Windows.Forms.Button();
             this.txtCEP = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -79,7 +78,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.btnBuscarCEP);
             this.groupBox3.Controls.Add(this.txtCEP);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(12, 261);
@@ -216,18 +214,9 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Cidade:";
             // 
-            // btnBuscarCEP
-            // 
-            this.btnBuscarCEP.Location = new System.Drawing.Point(89, 83);
-            this.btnBuscarCEP.Name = "btnBuscarCEP";
-            this.btnBuscarCEP.Size = new System.Drawing.Size(104, 31);
-            this.btnBuscarCEP.TabIndex = 12;
-            this.btnBuscarCEP.Text = "Buscar";
-            this.btnBuscarCEP.UseVisualStyleBackColor = true;
-            // 
             // txtCEP
             // 
-            this.txtCEP.Location = new System.Drawing.Point(89, 40);
+            this.txtCEP.Location = new System.Drawing.Point(74, 78);
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.ReadOnly = true;
             this.txtCEP.Size = new System.Drawing.Size(139, 22);
@@ -236,7 +225,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 43);
+            this.label7.Location = new System.Drawing.Point(33, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 17);
             this.label7.TabIndex = 8;
@@ -422,7 +411,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnBuscarCEP;
         private System.Windows.Forms.TextBox txtCEP;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;

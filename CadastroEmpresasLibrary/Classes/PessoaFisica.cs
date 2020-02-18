@@ -10,28 +10,13 @@ using System.ComponentModel;
 
 namespace CadastroEmpresasLibrary.Classes
 {
-    public partial class PessoaFisica : IDisposable
+    public partial class PessoaFisica : Backwork<PessoaFisica> , IDisposable, ICRUD
     {
         Funcoes Func = new Funcoes();
 
-        //Verifica se é novo
-        private bool _isNew;
-        [Browsable(false)]
-        public bool IsNew
-        {
-            get { return _isNew; }
-        }
-
-        //Verifica se já foi modificado
-        private bool _isModified;
-        [Browsable(false)]
-        public bool IsModified
-        {
-            get { return _isModified; }
-        }
-
-        //Valida ID (APENAS TESTE)
         private int _ID;
+        //Valida ID (APENAS TESTE)
+        [DataObjectField(true, true, false)]
         public int Id
         {
             get { return _ID; }
@@ -48,9 +33,9 @@ namespace CadastroEmpresasLibrary.Classes
                 }
             }
         }
-
         //Nome
         private string _Nome;
+        [DataObjectField(false, false, false)]
         public string Nome
         {
             get { return _Nome; }
@@ -64,8 +49,9 @@ namespace CadastroEmpresasLibrary.Classes
             }
         }
 
-        //Valida CPF
         private string _CPF;
+        //Valida CPF
+        [DataObjectField(false, false, false)]
         public string CPF
         {
             get { return _CPF; }
@@ -85,8 +71,10 @@ namespace CadastroEmpresasLibrary.Classes
             }
         }
 
-        //Valida DataNascimento
+
         private DateTime _DataNascimento;
+        //Valida DataNascimento
+        [DataObjectField(false, false, false)]
         public DateTime DataNascimento
         {
             get { return _DataNascimento; }
@@ -99,8 +87,11 @@ namespace CadastroEmpresasLibrary.Classes
             }
         }
 
-        //Valida E-mail
+
+        
         private string _Email;
+        //Valida E-mail
+        [DataObjectField(false, false, true)]
         public string Email
         {
             get { return _Email; }
@@ -134,16 +125,20 @@ namespace CadastroEmpresasLibrary.Classes
             }
         }
 
-        //Valida Telefone
+        
         private string _Telefone;
+        //Valida Telefone
+        [DataObjectField(false, false, true)]
         public string Telefone
         {
             get { return _Telefone; }
             set { _Telefone = value; this._isModified = true; }
         }
 
-        //Valida Celular
+        
         private string _Celular;
+        //Valida Celular
+        [DataObjectField(false, false, true)]
         public string Celular
         {
             get { return _Celular; }
@@ -151,5 +146,21 @@ namespace CadastroEmpresasLibrary.Classes
         }
 
 
+        [Browsable(false)]
+        public bool IsNew
+        {
+            get { return _isNew; }
+        }
+        [Browsable(false)]
+        public bool IsModified
+        {
+            get { return _isModified; }
+        }
+
+        //Verifica se é novo
+        private bool _isNew;
+
+        //Verifica se já foi modificado
+        private bool _isModified;
     }
 }
