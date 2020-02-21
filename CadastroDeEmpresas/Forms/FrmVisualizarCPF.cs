@@ -1,13 +1,7 @@
-﻿using CadastroDeEmpresasLibrary.Classes;
-using CadastroEmpresasLibrary.Classes;
+﻿using CadastroEmpresasLibrary.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CadastroDeEmpresas.Forms
@@ -23,26 +17,30 @@ namespace CadastroDeEmpresas.Forms
         {
             try
             {
-                PessoaFisica auxPessoa = new PessoaFisica();
-                Endereco auxEndereco = new Endereco();
+                PessoaFisica pes = new PessoaFisica();
+                Endereco end = new Endereco();
+                Contato con = new Contato();
 
-                auxPessoa.HasCpf(cpf);
-                auxEndereco.Select(auxPessoa.Id);
+                pes.HasCpf(cpf);
+                end.Select(pes.EnderecoId);
+                con.Select(pes.ContatoId);
+                
 
-                txtNome.Text = auxPessoa.Nome;
-                mskTxtCPF.Text = auxPessoa.CPF;
-                mskTxtNascimento.Text = auxPessoa.DataNascimento.ToString();
-                txtEmail.Text = auxPessoa.Email;
-                txtCelular.Text = auxPessoa.Celular;
-                txtTelefone.Text = auxPessoa.Telefone;
+                txtNome.Text = pes.Nome;
+                mskTxtCPF.Text = pes.CPF;
+                mskTxtNascimento.Text = pes.DataNascimento.ToString();
 
-                txtCEP.Text = auxEndereco.CEP;
-                txtCidade.Text = auxEndereco.Cidade;
-                txtUF.Text = auxEndereco.UF;
-                txtBairro.Text = auxEndereco.Bairro;
-                txtLogradouro.Text = auxEndereco.Logradouro;
-                txtNumero.Text = auxEndereco.Numero;
-                txtComplemento.Text = auxEndereco.Complemento;
+                txtEmail.Text = con.Email;
+                txtCelular.Text = con.Celular;
+                txtTelefone.Text = con.Telefone;
+
+                txtCEP.Text = end.CEP;
+                txtCidade.Text = end.Cidade;
+                txtUF.Text = end.UF;
+                txtBairro.Text = end.Bairro;
+                txtLogradouro.Text = end.Logradouro;
+                txtNumero.Text = end.Numero;
+                txtComplemento.Text = end.Complemento;
             }
             catch (Exception e2)
             {

@@ -1,14 +1,13 @@
 ﻿Imports System.Net
 Imports System.Web.Http
-Imports CadastroEmpresasLibrary.Classes
 
 Namespace Controllers
     Public Class PessoaFisicaController
         Inherits ApiController
 
         ' GET: api/PessoaFisica
-        Public Function GetValues() As IEnumerable(Of PessoaFisica)
-            Return New PessoaFisica()
+        Public Function GetValues() As IEnumerable(Of String)
+            Return New String() {"value1", "value2"}
         End Function
 
         ' GET: api/PessoaFisica/5

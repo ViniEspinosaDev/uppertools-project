@@ -1,12 +1,4 @@
-﻿using CadastroEmpresasLibrary.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CadastroEmpresasLibrary.Metodos
+﻿namespace CadastroEmpresasLibrary.Metodos
 {
     public class Funcoes
     {
@@ -18,7 +10,7 @@ namespace CadastroEmpresasLibrary.Metodos
         {
             return texto.ToUpper();
         }
-        public Boolean VerificaCPF(string cpf)
+        public bool VerificaCPF(string cpf)
         {
             //Algoritmo
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -54,7 +46,7 @@ namespace CadastroEmpresasLibrary.Metodos
             digito = digito + resto.ToString();
             return cpf.EndsWith(digito);
         }
-        public Boolean VerificaCNPJ(string cnpj)
+        public bool VerificaCNPJ(string cnpj)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -88,60 +80,6 @@ namespace CadastroEmpresasLibrary.Metodos
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
         }
-        public Boolean TestarConexaoBanco(string pathBanco)
-        {
-            using(SqlConnection sc = new SqlConnection(pathBanco))
-            {
-                try
-                {
-                    sc.Open();
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
-        }
-
-        //public Boolean VerificaTabela(string pathBD, string nomeTabela)
-        //{
-        //    using(SqlConnection cn = new SqlConnection(pathBD))
-        //    {
-        //        try
-        //        {
-        //            cn.Open();
-        //        }
-        //        catch (Exception ee)
-        //        {
-        //            throw new ValidacaoException(ee.Message);
-        //        }
-
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = cn;
-        //            cmd.CommandText = $"SELECT * FROM {nomeTabela}";
-
-        //            using (SqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                if (dr.HasRows)
-        //                {
-        //                    dr.Read();
-        //                    this._ID = dr.GetInt32(dr.GetOrdinal("ID"));
-        //                    this._Nome = dr.GetString(dr.GetOrdinal("Nome"));
-        //                    this._CPF = dr.GetString(dr.GetOrdinal("CPF"));
-        //                    this._DataNascimento = dr.GetDateTime(dr.GetOrdinal("DataNascimento"));
-        //                    this._Email = dr.GetString(dr.GetOrdinal("Email"));
-        //                    this._Telefone = dr.GetString(dr.GetOrdinal("Telefone"));
-        //                    this._Celular = dr.GetString(dr.GetOrdinal("Celular"));
-
-        //                }
-        //            }
-
-        //        }
-
-        //    }
-        //}
 
     }
 }

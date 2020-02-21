@@ -1,5 +1,4 @@
-﻿using CadastroDeEmpresasLibrary.Classes;
-using CadastroEmpresasLibrary.Classes;
+﻿using CadastroEmpresasLibrary.Classes;
 using CadastroEmpresasLibrary.Exceptions;
 using CadastroEmpresasLibrary.Metodos;
 using Correios;
@@ -78,20 +77,15 @@ namespace CadastroDeEmpresas.Forms
                 Funcoes func = new Funcoes();
                 Endereco auxEndereco = new Endereco();
                 PessoaFisica pessoa = new PessoaFisica();
+                Contato contato = new Contato();
 
                 if (!pessoa.HasCpf(mskTxtCPF.Text))
                 {
-                    
-                    pessoa.CPF = mskTxtCPF.Text;
-                    pessoa.Nome = txtNome.Text;
-                    pessoa.Telefone = txtTelefone.Text;
-                    pessoa.Celular = txtCelular.Text;
-                    pessoa.DataNascimento = DateTime.Parse(mskTxtNascimento.Text);
-                    pessoa.Email = txtEmail.Text;
 
-                    int nextid = pessoa._Proximo();
+                    contato.Telefone = txtTelefone.Text;
+                    contato.Celular = txtCelular.Text;
+                    contato.Email = txtEmail.Text;
 
-                    auxEndereco.ID = nextid;
                     auxEndereco.CEP = aux;
                     auxEndereco.Bairro = txtBairro.Text;
                     auxEndereco.Cidade = txtCidade.Text;
@@ -100,8 +94,21 @@ namespace CadastroDeEmpresas.Forms
                     auxEndereco.Numero = txtNumero.Text;
                     auxEndereco.UF = txtUF.Text;
 
-                    pessoa.Dispose();
+                    pessoa.CPF = mskTxtCPF.Text;
+                    pessoa.Nome = txtNome.Text;
+                    pessoa.DataNascimento = DateTime.Parse(mskTxtNascimento.Text);
+
+
+
+
+                    
                     auxEndereco.Dispose();
+                    contato.Dispose();
+                    pessoa._Contato = contato;
+                    pessoa.ContatoId = contato.ContatoId;
+                    pessoa._Endereco = auxEndereco;
+                    pessoa.EnderecoId = auxEndereco.EnderecoId;
+                    pessoa.Dispose();
                 }
                 else
                 {

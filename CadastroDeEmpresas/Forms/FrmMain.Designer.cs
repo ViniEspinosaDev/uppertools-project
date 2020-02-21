@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.cadastroEmpresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cadastroEmpresa = new CadastroDeEmpresas.CadastroEmpresa();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cPFToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,8 +76,8 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,13 +88,12 @@
             // 
             // cadastroEmpresaBindingSource
             // 
-            this.cadastroEmpresaBindingSource.DataSource = this.cadastroEmpresa;
             this.cadastroEmpresaBindingSource.Position = 0;
             // 
             // cadastroEmpresa
             // 
-            this.cadastroEmpresa.DataSetName = "CadastroEmpresa";
-            this.cadastroEmpresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.cadastroEmpresa.DataSetName = "CadastroEmpresa";
+            //this.cadastroEmpresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // menuStrip1
             // 
@@ -562,8 +560,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vinicius Espinosa - Uppertools";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -580,7 +578,6 @@
 
         #endregion
         private System.Windows.Forms.BindingSource cadastroEmpresaBindingSource;
-        private CadastroEmpresa cadastroEmpresa;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;

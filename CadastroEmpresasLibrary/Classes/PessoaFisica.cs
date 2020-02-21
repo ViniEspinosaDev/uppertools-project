@@ -1,149 +1,111 @@
 ﻿using CadastroEmpresasLibrary.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CadastroEmpresasLibrary.Metodos;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace CadastroEmpresasLibrary.Classes
 {
-    public partial class PessoaFisica : Backwork<PessoaFisica> , IDisposable, ICRUD
+    public partial class PessoaFisica : Backwork<PessoaFisica>, ICRUD
     {
-        Funcoes Func = new Funcoes();
+        Funcoes func = new Funcoes();
 
-        private int _ID;
-        //Valida ID (APENAS TESTE)
+        #region Conteudo - PessoaFisica
+
+        private int _pessoaFisicaId;
         [DataObjectField(true, true, false)]
-        public int Id
+        [DisplayName("Codigo")]
+        [Key]
+        public int PessoaFisicaId
         {
-            get { return _ID; }
-            set 
+            get { return _pessoaFisicaId; }
+            set
             {
                 if (value < 0)
                 {
-                    throw new ValidacaoException("O ID do cliente não pode ser negativo!");
+                    throw new ValidacaoException("O ID da Pessoa não pode ser negativo!");
                 }
                 else
                 {
-                    _ID = value;
+                    _pessoaFisicaId = value;
                     this._isModified = true;
                 }
             }
         }
-        //Nome
+
+
+
         private string _Nome;
         [DataObjectField(false, false, false)]
+        [DisplayName("Nome")]
         public string Nome
         {
             get { return _Nome; }
-            set 
+            set
             {
-               _Nome = value;
+                _Nome = value;
                 if (string.IsNullOrEmpty(Nome))
                     throw new ValidacaoException("Nome não pode ser nulo!");
                 this._isModified = true;
-                _Nome = Func.Maiuscula(_Nome);
+                _Nome = func.Maiuscula(_Nome);
             }
         }
 
-        private string _CPF;
-        //Valida CPF
+
+
+        private string _cpf;
         [DataObjectField(false, false, false)]
+        [DisplayName("CPF")]
         public string CPF
         {
-            get { return _CPF; }
-            set 
+            get { return _cpf; }
+            set
             {
-                //Algoritmo CPF
-                if (Func.VerificaCPF(value))
+                if (func.VerificaCPF(value))
                 {
-                    _CPF = value;
+                    _cpf = value;
                     this._isModified = true;
                 }
                 else
                 {
                     throw new ValidacaoException("O CPF é inválido!");
                 }
-                     
             }
         }
+
 
 
         private DateTime _DataNascimento;
-        //Valida DataNascimento
         [DataObjectField(false, false, false)]
+        [DisplayName("Data Nascimento")]
         public DateTime DataNascimento
         {
             get { return _DataNascimento; }
-            set 
+            set
             {
                 _DataNascimento = value;
                 if (DataNascimento == null)
-                    throw new ValidacaoException("Data de Nascimento não pode ser nulo!");               
-                this._isModified = true; 
+                    throw new ValidacaoException("Data de Nascimento não pode ser nulo!");
+                this._isModified = true;
             }
         }
 
 
-        
-        private string _Email;
-        //Valida E-mail
+        [ForeignKey("ContatoId")]
         [DataObjectField(false, false, true)]
-        public string Email
-        {
-            get { return _Email; }
-            set 
-            {
-               
+        [DisplayName("ContatoID")]
+        public int ContatoId { get; set; }
+        public virtual Contato _Contato { get; set; }
 
-                bool ver = false;
-                foreach(char x in value)
-                {
-                    if (x == '@')
-                    {
-                        ver = true;
-                        break;
-                    }
-                        
-                }
 
-                if(ver)
-                {
-                    _Email = value;
-                    _Email = Func.Maiuscula(_Email);
-                } 
-                else
-                {
-                    throw new ValidacaoException("O e-mail é inválido!");
-                }
 
-                if (string.IsNullOrEmpty(Email))
-                    throw new ValidacaoException("Email não pode ser nulo!");
-            }
-        }
-
-        
-        private string _Telefone;
-        //Valida Telefone
+        [ForeignKey("EnderecoId")]
         [DataObjectField(false, false, true)]
-        public string Telefone
-        {
-            get { return _Telefone; }
-            set { _Telefone = value; this._isModified = true; }
-        }
+        [DisplayName("EnderecoID")]
+        public int EnderecoId { get; set; }
+        public virtual Endereco _Endereco { get; set; }
 
-        
-        private string _Celular;
-        //Valida Celular
-        [DataObjectField(false, false, true)]
-        public string Celular
-        {
-            get { return _Celular; }
-            set { _Celular = value; this._isModified = true; }
-        }
 
 
         [Browsable(false)]
@@ -162,5 +124,7 @@ namespace CadastroEmpresasLibrary.Classes
 
         //Verifica se já foi modificado
         private bool _isModified;
+        #endregion
+
     }
 }

@@ -30,29 +30,33 @@
         {
             this.grpBoxConsultaCPF = new System.Windows.Forms.GroupBox();
             this.txtBoxAux = new System.Windows.Forms.TextBox();
-            this.dataGridViewConsulCPF = new System.Windows.Forms.DataGridView();
             this.grpBoxConsultaCPFbuttons = new System.Windows.Forms.GroupBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnConsultaCPFsair = new System.Windows.Forms.Button();
             this.btnConsultaCPFalterar = new System.Windows.Forms.Button();
             this.btnConsultaCPFentrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.mskTxtConsultaCPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtConsultaNOME = new System.Windows.Forms.TextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pnlPessoaFisica = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewConsulCPF = new System.Windows.Forms.DataGridView();
             this.grpBoxConsultaCPF.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).BeginInit();
             this.grpBoxConsultaCPFbuttons.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlPessoaFisica.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxConsultaCPF
             // 
+            this.grpBoxConsultaCPF.Controls.Add(this.pnlPessoaFisica);
             this.grpBoxConsultaCPF.Controls.Add(this.txtBoxAux);
-            this.grpBoxConsultaCPF.Controls.Add(this.dataGridViewConsulCPF);
             this.grpBoxConsultaCPF.Location = new System.Drawing.Point(12, 12);
             this.grpBoxConsultaCPF.Name = "grpBoxConsultaCPF";
             this.grpBoxConsultaCPF.Size = new System.Drawing.Size(823, 352);
@@ -67,16 +71,6 @@
             this.txtBoxAux.Size = new System.Drawing.Size(10, 22);
             this.txtBoxAux.TabIndex = 6;
             this.txtBoxAux.Visible = false;
-            // 
-            // dataGridViewConsulCPF
-            // 
-            this.dataGridViewConsulCPF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConsulCPF.Location = new System.Drawing.Point(6, 21);
-            this.dataGridViewConsulCPF.Name = "dataGridViewConsulCPF";
-            this.dataGridViewConsulCPF.RowHeadersWidth = 51;
-            this.dataGridViewConsulCPF.RowTemplate.Height = 24;
-            this.dataGridViewConsulCPF.Size = new System.Drawing.Size(811, 325);
-            this.dataGridViewConsulCPF.TabIndex = 0;
             // 
             // grpBoxConsultaCPFbuttons
             // 
@@ -146,6 +140,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(333, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "* Enter p/ pesquisar *";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(323, 53);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(163, 36);
+            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Text = "Limpar Campos";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // mskTxtConsultaCPF
             // 
             this.mskTxtConsultaCPF.Location = new System.Drawing.Point(90, 69);
@@ -184,24 +197,33 @@
             this.txtConsultaNOME.Click += new System.EventHandler(this.txtConsultaNOME_Click);
             this.txtConsultaNOME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultaNOME_KeyPress);
             // 
-            // btnLimpar
+            // pnlPessoaFisica
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(323, 53);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(163, 36);
-            this.btnLimpar.TabIndex = 8;
-            this.btnLimpar.Text = "Limpar Campos";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.pnlPessoaFisica.Controls.Add(this.groupBox2);
+            this.pnlPessoaFisica.Location = new System.Drawing.Point(6, 21);
+            this.pnlPessoaFisica.Name = "pnlPessoaFisica";
+            this.pnlPessoaFisica.Size = new System.Drawing.Size(811, 325);
+            this.pnlPessoaFisica.TabIndex = 7;
             // 
-            // label3
+            // groupBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(333, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 17);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "* Enter p/ pesquisar *";
+            this.groupBox2.Controls.Add(this.dataGridViewConsulCPF);
+            this.groupBox2.Location = new System.Drawing.Point(6, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(796, 299);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pessoa Fisica";
+            // 
+            // dataGridViewConsulCPF
+            // 
+            this.dataGridViewConsulCPF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConsulCPF.Location = new System.Drawing.Point(3, 21);
+            this.dataGridViewConsulCPF.Name = "dataGridViewConsulCPF";
+            this.dataGridViewConsulCPF.RowHeadersWidth = 51;
+            this.dataGridViewConsulCPF.RowTemplate.Height = 24;
+            this.dataGridViewConsulCPF.Size = new System.Drawing.Size(793, 272);
+            this.dataGridViewConsulCPF.TabIndex = 0;
             // 
             // FrmConsultaCPF
             // 
@@ -219,17 +241,18 @@
             this.Load += new System.EventHandler(this.FrmConsultaCPF_Load);
             this.grpBoxConsultaCPF.ResumeLayout(false);
             this.grpBoxConsultaCPF.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).EndInit();
             this.grpBoxConsultaCPFbuttons.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlPessoaFisica.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox grpBoxConsultaCPF;
-        private System.Windows.Forms.DataGridView dataGridViewConsulCPF;
         private System.Windows.Forms.GroupBox grpBoxConsultaCPFbuttons;
         private System.Windows.Forms.Button btnConsultaCPFsair;
         private System.Windows.Forms.Button btnConsultaCPFalterar;
@@ -243,5 +266,8 @@
         private System.Windows.Forms.Button btnMostrarTodos;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel pnlPessoaFisica;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridViewConsulCPF;
     }
 }

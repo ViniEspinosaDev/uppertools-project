@@ -7,8 +7,8 @@
     <ProjectGuid>{D5D26AE8-BCD8-4184-875F-E9D80D788B9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CadastroEmpresasLibrary</RootNamespace>
-    <AssemblyName>CadastroEmpresasLibrary</AssemblyName>
+    <RootNamespace>CadastroEmpresaLibrary</RootNamespace>
+    <AssemblyName>CadastroEmpresaLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,13 +30,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>vespinosa_5wG_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Correios, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Correios-Api.1.1.1\lib\portable-net45+win\Correios.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,16 +53,62 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Backwork.cs" />
+    <Compile Include="Classes\Contato.cs" />
     <Compile Include="Classes\Endereco.cs" />
     <Compile Include="Classes\PessoaFisica.cs" />
+    <Compile Include="Classes\PessoaJuridica.cs" />
     <Compile Include="Exceptions\ExcecoesPessoaFisica.cs" />
     <Compile Include="Metodos\Funcoes.cs" />
+    <Compile Include="Metodos\MetodosContato.cs" />
     <Compile Include="Metodos\MetodosEndereco.cs" />
     <Compile Include="Metodos\MetodosPessoaFisica.cs" />
+    <Compile Include="Metodos\MetodosPessoaJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\br.gov.rfb.sped\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\br.gov.rfb.sped\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\br.gov.rfb.sped\WsConsulta.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="vespinosa_5wG_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://sped.rfb.gov.br/estatico/76/05E527051AC2EABC34DD6795D29B5AF16D6102/WsConsulta.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\br.gov.rfb.sped\</RelPath>
+      <UpdateFromURL>http://sped.rfb.gov.br/estatico/76/05E527051AC2EABC34DD6795D29B5AF16D6102/WsConsulta.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CadastroEmpresaLibrary_br_gov_rfb_sped_WsConsulta</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

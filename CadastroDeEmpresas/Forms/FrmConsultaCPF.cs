@@ -1,5 +1,4 @@
-﻿using CadastroDeEmpresasLibrary.Classes;
-using CadastroEmpresasLibrary.Classes;
+﻿using CadastroEmpresasLibrary.Classes;
 using CadastroEmpresasLibrary.Exceptions;
 using CadastroEmpresasLibrary.Metodos;
 using System;
@@ -45,7 +44,7 @@ namespace CadastroDeEmpresas.Forms
                 {
                     ((PessoaFisica)dados.Current).Delete();
                     Endereco auxEnd = new Endereco();
-                    auxEnd.ID = ((PessoaFisica)dados.Current).Id;
+                    auxEnd.EnderecoId = ((PessoaFisica)dados.Current).EnderecoId;
                     auxEnd.Delete();
                     MessageBox.Show("Cadastro Excluido com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -122,8 +121,14 @@ namespace CadastroDeEmpresas.Forms
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
+            Endereco end = new Endereco();
+            PessoaFisica pes = new PessoaFisica();
+            Contato con = new Contato();
             dados.DataSource = PessoaFisica.Todos();
-            dataGridViewConsulCPF.DataSource = dados;
+            end.Select(pes.EnderecoId);
+            con.Select(con.ContatoId);
+            string x = dados.DataSource.ToString() + pes + con;
+            dataGridViewConsulCPF.DataSource = x;
         }
 
         private void txtConsultaNOME_KeyPress(object sender, KeyPressEventArgs e)
