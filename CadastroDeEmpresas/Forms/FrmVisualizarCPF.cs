@@ -22,8 +22,8 @@ namespace CadastroDeEmpresas.Forms
                 Contato con = new Contato();
 
                 pes.HasCpf(cpf);
-                end.Select(pes.EnderecoId);
-                con.Select(pes.ContatoId);
+                end = end.GetByPrimaryKey(pes.EnderecoId);
+                con = con.GetByPrimaryKey(pes.ContatoId);
                 
 
                 txtNome.Text = pes.Nome;

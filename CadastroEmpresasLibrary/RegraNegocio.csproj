@@ -58,7 +58,9 @@
     <Compile Include="Classes\PessoaFisica.cs" />
     <Compile Include="Classes\PessoaJuridica.cs" />
     <Compile Include="Exceptions\ExcecoesPessoaFisica.cs" />
+    <Compile Include="Metodos\BitMap.cs" />
     <Compile Include="Metodos\Funcoes.cs" />
+    <Compile Include="Metodos\ManipularXml.cs" />
     <Compile Include="Metodos\MetodosContato.cs" />
     <Compile Include="Metodos\MetodosEndereco.cs" />
     <Compile Include="Metodos\MetodosPessoaFisica.cs" />
@@ -69,7 +71,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\br.gov.rfb.sped\Reference.cs">
+    <Compile Include="Web References\ServicoCNPJ\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -82,11 +84,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\br.gov.rfb.sped\Reference.map">
+    <None Include="Web References\ServicoCNPJ\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\br.gov.rfb.sped\WsConsulta.wsdl" />
+    <None Include="Web References\ServicoCNPJ\WsConsulta.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="vespinosa_5wG_icon.ico" />
@@ -100,7 +102,7 @@
   <ItemGroup>
     <WebReferenceUrl Include="http://sped.rfb.gov.br/estatico/76/05E527051AC2EABC34DD6795D29B5AF16D6102/WsConsulta.wsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\br.gov.rfb.sped\</RelPath>
+      <RelPath>Web References\ServicoCNPJ\</RelPath>
       <UpdateFromURL>http://sped.rfb.gov.br/estatico/76/05E527051AC2EABC34DD6795D29B5AF16D6102/WsConsulta.wsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>

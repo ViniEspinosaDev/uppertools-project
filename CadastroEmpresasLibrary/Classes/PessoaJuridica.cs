@@ -148,6 +148,7 @@ namespace CadastroEmpresasLibrary.Classes
         [DataObjectField(false, false, true)]
         [DisplayName("ContatoID")]
         public int ContatoId { get; set; }
+        [Browsable(false)]
         public virtual Contato _Contato { get; set; }
 
 
@@ -157,6 +158,7 @@ namespace CadastroEmpresasLibrary.Classes
         [DataObjectField(false, false, true)]
         [DisplayName("EnderecoID")]
         public int EnderecoId { get; set; }
+        [Browsable(false)]
         public virtual Endereco _Endereco { get; set; }
 
 
@@ -175,9 +177,9 @@ namespace CadastroEmpresasLibrary.Classes
         {
             get { return _isModified; }
         }
-
+        [Browsable(false)]
         private bool _isNew;
-
+        [Browsable(false)]
         private bool _isModified;
 
         #endregion

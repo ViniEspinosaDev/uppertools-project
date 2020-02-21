@@ -15,12 +15,12 @@ using Microsoft.Data.OData;
 
 namespace CadastroEmpresasLibrary.Classes
 {
-    public class PessoaFisicaController : ApiController
+    public class PessoaJuridicaController : ApiController
     {
         private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
 
-        // GET: odata/PessoaFisicas
-        public async Task<IHttpActionResult> GetPessoaFisicas([FromUri]string sort, [FromUri]string order)
+        // GET: odata/PessoaJuridicas
+        public async Task<IHttpActionResult> GetPessoaJuridicas([FromUri]string sort, [FromUri]string order)
         {
             // validate the query.
             try
@@ -31,19 +31,19 @@ namespace CadastroEmpresasLibrary.Classes
             {
                 return BadRequest(ex.Message);
             }
-            List<PessoaFisica> re = new PessoaFisica().GetAll();
+            List<PessoaJuridica> re = new PessoaJuridica().GetAll();
             if (order == "asc")
             {
                 switch (sort)
                 {
-                    case "PessoaFisicaId":
-                        re = re.OrderBy(o => o.PessoaFisicaId).ToList();
+                    case "PessoaJuridicaId":
+                        re = re.OrderBy(o => o.PessoaJuridicaId).ToList();
                         break;
                     case "Nome":
                         re = re.OrderBy(o => o.Nome).ToList();
                         break;
-                    case "DataNascimento":
-                        re = re.OrderBy(o => o.DataNascimento).ToList();
+                    case "Abertura":
+                        re = re.OrderBy(o => o.Abertura).ToList();
                         break;
                     default:
                         break;
@@ -53,14 +53,14 @@ namespace CadastroEmpresasLibrary.Classes
             {
                 switch (sort)
                 {
-                    case "PessoaFisicaId":
-                        re = re.OrderByDescending(o => o.PessoaFisicaId).ToList();
+                    case "PessoaJuridicaId":
+                        re = re.OrderByDescending(o => o.PessoaJuridicaId).ToList();
                         break;
                     case "Nome":
                         re = re.OrderByDescending(o => o.Nome).ToList();
                         break;
-                    case "DataNascimento":
-                        re = re.OrderByDescending(o => o.DataNascimento).ToList();
+                    case "Abertura":
+                        re = re.OrderByDescending(o => o.Abertura).ToList();
                         break;
                     default:
                         break;
@@ -69,8 +69,8 @@ namespace CadastroEmpresasLibrary.Classes
             return Ok(re);
         }
 
-        // GET: odata/PessoaFisicas(5)
-        public async Task<IHttpActionResult> GetPessoaFisica([FromODataUri] int key, ODataQueryOptions<PessoaFisica> queryOptions)
+        // GET: odata/PessoaJuridicas(5)
+        public async Task<IHttpActionResult> GetPessoaJuridica([FromODataUri] int key, ODataQueryOptions<PessoaJuridica> queryOptions)
         {
             // validate the query.
             try
@@ -82,12 +82,12 @@ namespace CadastroEmpresasLibrary.Classes
                 return BadRequest(ex.Message);
             }
 
-            // return Ok<PessoaFisica>(PessoaFisica);
+            // return Ok<PessoaJuridica>(PessoaJuridica);
             return StatusCode(HttpStatusCode.NotImplemented);
         }
 
-        // PUT: odata/PessoaFisicas(5)
-        public async Task<IHttpActionResult> Put([FromODataUri] int key, Delta<PessoaFisica> delta)
+        // PUT: odata/PessoaJuridicas(5)
+        public async Task<IHttpActionResult> Put([FromODataUri] int key, Delta<PessoaJuridica> delta)
         {
             Validate(delta.GetEntity());
 
@@ -98,16 +98,16 @@ namespace CadastroEmpresasLibrary.Classes
 
             // TODO: Get the entity here.
 
-            // delta.Put(PessoaFisica);
+            // delta.Put(PessoaJuridica);
 
             // TODO: Save the patched entity.
 
-            // return Updated(PessoaFisica);
+            // return Updated(PessoaJuridica);
             return StatusCode(HttpStatusCode.NotImplemented);
         }
 
-        // POST: odata/PessoaFisicas
-        public async Task<IHttpActionResult> Post(PessoaFisica PessoaFisica)
+        // POST: odata/PessoaJuridicas
+        public async Task<IHttpActionResult> Post(PessoaJuridica PessoaJuridica)
         {
             if (!ModelState.IsValid)
             {
@@ -116,13 +116,13 @@ namespace CadastroEmpresasLibrary.Classes
 
             // TODO: Add create logic here.
 
-            // return Created(PessoaFisica);
+            // return Created(PessoaJuridica);
             return StatusCode(HttpStatusCode.NotImplemented);
         }
 
-        // PATCH: odata/PessoaFisicas(5)
+        // PATCH: odata/PessoaJuridicas(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<PessoaFisica> delta)
+        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<PessoaJuridica> delta)
         {
             Validate(delta.GetEntity());
 
@@ -133,15 +133,15 @@ namespace CadastroEmpresasLibrary.Classes
 
             // TODO: Get the entity here.
 
-            // delta.Patch(PessoaFisica);
+            // delta.Patch(PessoaJuridica);
 
             // TODO: Save the patched entity.
 
-            // return Updated(PessoaFisica);
+            // return Updated(PessoaJuridica);
             return StatusCode(HttpStatusCode.NotImplemented);
         }
 
-        // DELETE: odata/PessoaFisicas(5)
+        // DELETE: odata/PessoaJuridicas(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
             // TODO: Add delete logic here.

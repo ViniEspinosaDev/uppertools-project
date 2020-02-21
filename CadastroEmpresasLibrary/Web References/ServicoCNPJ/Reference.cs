@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace CadastroEmpresaLibrary.br.gov.rfb.sped {
+namespace CadastroEmpresaLibrary.ServicoCNPJ {
     using System;
     using System.Web.Services;
     using System.Diagnostics;

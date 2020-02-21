@@ -36,5 +36,10 @@ namespace CadastroDeEmpresas
         }
         #endregion
 
+        private void cNPJToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmCadastraCNPJ cadastraCNPJ = new FrmCadastraCNPJ();
+            cadastraCNPJ.ShowDialog();
+        }
     }
 }

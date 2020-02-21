@@ -236,7 +236,14 @@ namespace CadastroEmpresasLibrary.Classes
                         if (dr.HasRows)
                         {
                             dr.Read();
-                            _return = dr.GetInt32(0);
+                            try
+                            {
+                                _return = dr.GetInt32(0);
+                            }
+                            catch (Exception)
+                            {
+                                _return += 1;
+                            }
                         }
                     }
 

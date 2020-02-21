@@ -21,7 +21,10 @@ namespace CadastroDeEmpresas.Forms
             InitializeComponent();
             dataGridViewConsulCPF.AllowUserToAddRows = false;
             dataGridViewConsulCPF.AllowUserToDeleteRows = false;
-            dados.DataSource = PessoaFisica.Todos();
+            if(!(new PessoaFisica().GetAll() == null))
+            {
+                dados.DataSource = dados.DataSource = new BindingList<PessoaFisica>(new PessoaFisica().GetAll());
+            }
             dataGridViewConsulCPF.DataSource = dados;
         }
 
@@ -44,8 +47,12 @@ namespace CadastroDeEmpresas.Forms
                 {
                     ((PessoaFisica)dados.Current).Delete();
                     Endereco auxEnd = new Endereco();
+                    Contato auxCon = new Contato();
                     auxEnd.EnderecoId = ((PessoaFisica)dados.Current).EnderecoId;
                     auxEnd.Delete();
+                    auxCon.ContatoId = ((PessoaFisica)dados.Current).ContatoId;
+                    auxCon.Delete();
+                    btnMostrarTodos_Click(sender, e);
                     MessageBox.Show("Cadastro Excluido com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -53,7 +60,10 @@ namespace CadastroDeEmpresas.Forms
             {
                 MessageBox.Show(ee.Message, "ERRO AO APAGAR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            dados.DataSource = PessoaFisica.Todos();
+            if (!(new PessoaFisica().GetAll() == null))
+            {
+                dados.DataSource = dados.DataSource = new BindingList<PessoaFisica>(new PessoaFisica().GetAll()) == null;
+            }
         }
 
         private void btnConsultaCPFentrar_Click(object sender, EventArgs e)
@@ -121,14 +131,11 @@ namespace CadastroDeEmpresas.Forms
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            Endereco end = new Endereco();
             PessoaFisica pes = new PessoaFisica();
-            Contato con = new Contato();
-            dados.DataSource = PessoaFisica.Todos();
-            end.Select(pes.EnderecoId);
-            con.Select(con.ContatoId);
-            string x = dados.DataSource.ToString() + pes + con;
-            dataGridViewConsulCPF.DataSource = x;
+            if (!(new PessoaFisica().GetAll() == null))
+            {
+                dados.DataSource = dados.DataSource = new BindingList<PessoaFisica>(new PessoaFisica().GetAll());
+            }
         }
 
         private void txtConsultaNOME_KeyPress(object sender, KeyPressEventArgs e)
@@ -167,5 +174,9 @@ namespace CadastroDeEmpresas.Forms
             txtConsultaNOME.Text = mskTxtConsultaCPF.Text = "";
         }
 
+        private void txtConsultaNOME_TextChanged(object sender, EventArgs e)
+        {
+
         }
+    }
 }

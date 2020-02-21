@@ -47,10 +47,12 @@ namespace CadastroEmpresasLibrary.Classes
                     {
                         if (dr.Read())
                         {
-                            this.PessoaFisicaId = dr.GetInt32(dr.GetOrdinal("PessoaFisicaID"));
+                            this.PessoaFisicaId = dr.GetInt32(dr.GetOrdinal("PessoaFisicaId"));
                             this.Nome = dr.GetString(dr.GetOrdinal("Nome"));
                             this.CPF = dr.GetString(dr.GetOrdinal("CPF"));
                             this.DataNascimento = dr.GetDateTime(dr.GetOrdinal("DataNascimento"));
+                            this.ContatoId = dr.GetInt32(dr.GetOrdinal("ContatoId"));
+                            this.EnderecoId = dr.GetInt32(dr.GetOrdinal("EnderecoId"));
                             return true;
                         }
 
@@ -87,10 +89,12 @@ namespace CadastroEmpresasLibrary.Classes
                             {
                                 PessoaFisica auxPessoaFisica = new PessoaFisica();
 
-                                auxPessoaFisica.PessoaFisicaId = dr.GetInt32(dr.GetOrdinal("ID"));
+                                auxPessoaFisica.PessoaFisicaId = dr.GetInt32(dr.GetOrdinal("PessoaFisicaId"));
                                 auxPessoaFisica.Nome = dr.GetString(dr.GetOrdinal("Nome"));
                                 auxPessoaFisica.CPF = dr.GetString(dr.GetOrdinal("CPF"));
                                 auxPessoaFisica.DataNascimento = dr.GetDateTime(dr.GetOrdinal("DataNascimento"));
+                                auxPessoaFisica.ContatoId = dr.GetInt32(dr.GetOrdinal("ContatoId"));
+                                auxPessoaFisica.EnderecoId = dr.GetInt32(dr.GetOrdinal("EnderecoId"));
 
 
                                 if (_return == null)

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CadastroDeEmpresas.Forms
 {
-    public partial class FrmPathBD : Form
+    public partial class FrmVisualizarCNPJ : Form
     {
-        public FrmPathBD()
+        public FrmVisualizarCNPJ()
         {
             InitializeComponent();
         }

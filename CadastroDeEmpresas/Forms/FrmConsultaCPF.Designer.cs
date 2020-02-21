@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.grpBoxConsultaCPF = new System.Windows.Forms.GroupBox();
+            this.pnlPessoaFisica = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewConsulCPF = new System.Windows.Forms.DataGridView();
             this.txtBoxAux = new System.Windows.Forms.TextBox();
             this.grpBoxConsultaCPFbuttons = new System.Windows.Forms.GroupBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
@@ -42,15 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtConsultaNOME = new System.Windows.Forms.TextBox();
-            this.pnlPessoaFisica = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewConsulCPF = new System.Windows.Forms.DataGridView();
             this.grpBoxConsultaCPF.SuspendLayout();
-            this.grpBoxConsultaCPFbuttons.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.pnlPessoaFisica.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).BeginInit();
+            this.grpBoxConsultaCPFbuttons.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpBoxConsultaCPF
@@ -63,6 +63,34 @@
             this.grpBoxConsultaCPF.TabIndex = 2;
             this.grpBoxConsultaCPF.TabStop = false;
             this.grpBoxConsultaCPF.Text = "Listando Dados";
+            // 
+            // pnlPessoaFisica
+            // 
+            this.pnlPessoaFisica.Controls.Add(this.groupBox2);
+            this.pnlPessoaFisica.Location = new System.Drawing.Point(6, 21);
+            this.pnlPessoaFisica.Name = "pnlPessoaFisica";
+            this.pnlPessoaFisica.Size = new System.Drawing.Size(811, 325);
+            this.pnlPessoaFisica.TabIndex = 7;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewConsulCPF);
+            this.groupBox2.Location = new System.Drawing.Point(6, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(796, 299);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pessoa Fisica";
+            // 
+            // dataGridViewConsulCPF
+            // 
+            this.dataGridViewConsulCPF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConsulCPF.Location = new System.Drawing.Point(3, 21);
+            this.dataGridViewConsulCPF.Name = "dataGridViewConsulCPF";
+            this.dataGridViewConsulCPF.RowHeadersWidth = 51;
+            this.dataGridViewConsulCPF.RowTemplate.Height = 24;
+            this.dataGridViewConsulCPF.Size = new System.Drawing.Size(793, 272);
+            this.dataGridViewConsulCPF.TabIndex = 0;
             // 
             // txtBoxAux
             // 
@@ -195,35 +223,8 @@
             this.txtConsultaNOME.Size = new System.Drawing.Size(212, 22);
             this.txtConsultaNOME.TabIndex = 7;
             this.txtConsultaNOME.Click += new System.EventHandler(this.txtConsultaNOME_Click);
+            this.txtConsultaNOME.TextChanged += new System.EventHandler(this.txtConsultaNOME_TextChanged);
             this.txtConsultaNOME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultaNOME_KeyPress);
-            // 
-            // pnlPessoaFisica
-            // 
-            this.pnlPessoaFisica.Controls.Add(this.groupBox2);
-            this.pnlPessoaFisica.Location = new System.Drawing.Point(6, 21);
-            this.pnlPessoaFisica.Name = "pnlPessoaFisica";
-            this.pnlPessoaFisica.Size = new System.Drawing.Size(811, 325);
-            this.pnlPessoaFisica.TabIndex = 7;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridViewConsulCPF);
-            this.groupBox2.Location = new System.Drawing.Point(6, 14);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(796, 299);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pessoa Fisica";
-            // 
-            // dataGridViewConsulCPF
-            // 
-            this.dataGridViewConsulCPF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConsulCPF.Location = new System.Drawing.Point(3, 21);
-            this.dataGridViewConsulCPF.Name = "dataGridViewConsulCPF";
-            this.dataGridViewConsulCPF.RowHeadersWidth = 51;
-            this.dataGridViewConsulCPF.RowTemplate.Height = 24;
-            this.dataGridViewConsulCPF.Size = new System.Drawing.Size(793, 272);
-            this.dataGridViewConsulCPF.TabIndex = 0;
             // 
             // FrmConsultaCPF
             // 
@@ -237,16 +238,16 @@
             this.MinimumSize = new System.Drawing.Size(865, 518);
             this.Name = "FrmConsultaCPF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consultando CPF";
+            this.Text = "Consultar CPF";
             this.Load += new System.EventHandler(this.FrmConsultaCPF_Load);
             this.grpBoxConsultaCPF.ResumeLayout(false);
             this.grpBoxConsultaCPF.PerformLayout();
-            this.grpBoxConsultaCPFbuttons.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.pnlPessoaFisica.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulCPF)).EndInit();
+            this.grpBoxConsultaCPFbuttons.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

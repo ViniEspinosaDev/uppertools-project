@@ -137,6 +137,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,11 +149,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FrmCadastraCNPJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCadastraCNPJ.Designer.cs">
+      <DependentUpon>FrmCadastraCNPJ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmCadastrarCPF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmCadastrarCPF.Designer.cs">
       <DependentUpon>FrmCadastrarCPF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmConsultaCNPJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmConsultaCNPJ.Designer.cs">
+      <DependentUpon>FrmConsultaCNPJ.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmConsultaCPF.cs">
       <SubType>Form</SubType>
@@ -166,11 +179,11 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmPathBD.cs">
+    <Compile Include="Forms\FrmVisualizarCNPJ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmPathBD.Designer.cs">
-      <DependentUpon>FrmPathBD.cs</DependentUpon>
+    <Compile Include="Forms\FrmVisualizarCNPJ.Designer.cs">
+      <DependentUpon>FrmVisualizarCNPJ.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmVisualizarCPF.cs">
       <SubType>Form</SubType>
@@ -180,8 +193,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FrmCadastraCNPJ.resx">
+      <DependentUpon>FrmCadastraCNPJ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmCadastrarCPF.resx">
       <DependentUpon>FrmCadastrarCPF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmConsultaCNPJ.resx">
+      <DependentUpon>FrmConsultaCNPJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmConsultaCPF.resx">
       <DependentUpon>FrmConsultaCPF.cs</DependentUpon>
@@ -189,8 +208,8 @@
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmPathBD.resx">
-      <DependentUpon>FrmPathBD.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmVisualizarCNPJ.resx">
+      <DependentUpon>FrmVisualizarCNPJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizarCPF.resx">
       <DependentUpon>FrmVisualizarCPF.cs</DependentUpon>

@@ -410,7 +410,7 @@
             this.MinimumSize = new System.Drawing.Size(865, 518);
             this.Name = "FrmCadastrarCPF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrando CPF";
+            this.Text = "Cadastrar CPF";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

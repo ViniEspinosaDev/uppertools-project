@@ -76,8 +76,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -85,15 +84,6 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cadastroEmpresaBindingSource
-            // 
-            this.cadastroEmpresaBindingSource.Position = 0;
-            // 
-            // cadastroEmpresa
-            // 
-            //this.cadastroEmpresa.DataSetName = "CadastroEmpresa";
-            //this.cadastroEmpresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // menuStrip1
             // 
@@ -120,15 +110,16 @@
             // cPFToolStripMenuItem1
             // 
             this.cPFToolStripMenuItem1.Name = "cPFToolStripMenuItem1";
-            this.cPFToolStripMenuItem1.Size = new System.Drawing.Size(124, 26);
+            this.cPFToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.cPFToolStripMenuItem1.Text = "CPF";
             this.cPFToolStripMenuItem1.Click += new System.EventHandler(this.cPFToolStripMenuItem1_Click);
             // 
             // cNPJToolStripMenuItem1
             // 
             this.cNPJToolStripMenuItem1.Name = "cNPJToolStripMenuItem1";
-            this.cNPJToolStripMenuItem1.Size = new System.Drawing.Size(124, 26);
+            this.cNPJToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.cNPJToolStripMenuItem1.Text = "CNPJ";
+            this.cNPJToolStripMenuItem1.Click += new System.EventHandler(this.cNPJToolStripMenuItem1_Click);
             // 
             // consultarToolStripMenuItem
             // 
@@ -560,8 +551,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vinicius Espinosa - Uppertools";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cadastroEmpresaBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
